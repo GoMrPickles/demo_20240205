@@ -163,3 +163,4 @@ cython_debug/
 call_gen_data.sh
 Generated Data for Tesla Talk.ipynb
 Studying for Tesla Panel Interview.ipynb
+.DS_Store

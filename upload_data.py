@@ -19,7 +19,7 @@ def scan_dir(data_dir: str=None):
         filepaths, a list of pathlib.Path() filepaths
     """
     if data_dir is None:
-        data_dir = Path(r"~/github/demo_20240205/data")
+        data_dir = Path(r"/Users/evan/github/demo_20240205/data/")
 
     # no error handling here; if real, guard clauses!
     filepaths = [f for f in data_dir.glob('*.csv')]
@@ -118,11 +118,6 @@ def upload_dfs(dfs: list, engine):
         conn, a psycopg2 database connection
     """
     for df in dfs:
-        # if not check_if_exists(df.loc[0, "filename"]):
-        #     df.to_sql('meas_values', conn, if_exists="append", index=False)
-        # print(df.sample(2))
-        # print(f"Uploading {df.loc[0, 'filename']}...\n")
-
         # be careful to use `engine` and not `conn` for SQLAlchemy!
         df.to_sql('meas_values', engine, if_exists="append", index=False)
 
@@ -148,7 +143,6 @@ def flag_outliers(df):
     mask = (df["value"].gt(103) | df["value"].lt(97))
     df.loc[mask, "outlier"] = True
     return df
-
 
 
 if __name__ == "__main__":

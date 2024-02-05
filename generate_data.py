@@ -8,13 +8,6 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 
-# print("Hello, world!")
-
-# multiplier = 3*np.random.default_rng().uniform(low=-1, high=1)
-# data = np.random.normal(loc=100.0, scale=1.0, size=30) \
-#     + 3*np.random.default_rng().uniform(low=-1, high=1)
-
-df_dicts = {}
 for n in range(10):
     # add a flag to track outliers to compare accuracy later
     data = (np.random.normal(loc=100.0, scale=1.0, size=30) \
