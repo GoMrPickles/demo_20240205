@@ -19,7 +19,7 @@ def scan_dir(data_dir: str=None):
         filepaths, a list of pathlib.Path() filepaths
     """
     if data_dir is None:
-        data_dir = Path(r"/Users/evan/Dropbox/Programming/tesla_demo/data")
+        data_dir = Path(r"~/github/demo_20240205/data")
 
     # no error handling here; if real, guard clauses!
     filepaths = [f for f in data_dir.glob('*.csv')]

@@ -21,4 +21,4 @@ for n in range(10):
             + 3*np.random.default_rng().uniform(low=-1, high=1))
     df = pd.DataFrame(data)
     data_timestamp = dt.datetime.now().strftime("%Y%m%d_%H%M%S.%f")[:-3]
-    df.to_csv(Path(rf"~/Dropbox/Programming/tesla_demo/data/{n:03d}_{data_timestamp}.csv"))
+    df.to_csv(Path(rf"~/github/demo_20240205/data/{n:03d}_{data_timestamp}.csv"))
