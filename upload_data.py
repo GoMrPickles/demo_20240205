@@ -58,6 +58,7 @@ def make_df(fp: Path):
     df["tool"] = tool
     df["run_timestamp"] = pd.to_datetime(run_timestamp)
     df["filename"] = fp.name
+    df = flag_outliers(df)
     # print(df.sample(2))
     return df
 
@@ -137,7 +138,7 @@ def move_uploaded_files(file_l):
         fp.replace(fp.parent / "uploaded" / fp.name)
 
 
-def manual_outlier_flag(df):
+def flag_outliers(df):
     """
     Flag any points as outliers that are > 103 or < 97.
     args:
@@ -146,6 +147,7 @@ def manual_outlier_flag(df):
     df["outlier"] = False
     mask = (df["value"].gt(103) | df["value"].lt(97))
     df.loc[mask, "outlier"] = True
+    return df
 
 
 
